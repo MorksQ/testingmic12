@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acctual – Get paid same day</title>
+  <style>
+    :root {
+      --bg: #f7fafc;
+      --primary: #004370;
+      --text: #000000e6;
+      --muted: #666;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 12px;
+      background: #f7fafc;
+      color: #000000e6;
+      -webkit-font-smoothing: antialiased;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      background: #004370;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      border-radius: 9999px;
+      padding: 2px 6px;
+      letter-spacing: 0.03em;
+    }
+    .logo-name { font-size: 13px; font-weight: 600; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 11px;
+    }
+    .btn-nav {
+      background: #000;
+      color: #fff;
+      font-size: 11px;
+      border-radius: 9999px;
+      padding: 6px 14px;
+      text-decoration: none;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 48px 24px 56px;
+    }
+    .hero h1 {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #000000e6;
+    }
+    .hero p {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+    }
+    .btn-primary {
+      display: inline-block;
+      margin-top: 22px;
+      background: #000;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 9999px;
+      padding: 10px 20px;
+      text-decoration: none;
+    }
+    .hero-stats {
+      margin-top: 36px;
+      font-size: 10px;
+      color: #666;
+    }
+    .partner-logos {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      opacity: 0.35;
+    }
+    .partner-logos span { font-size: 11px; font-weight: 700; color: #333; letter-spacing: 0.05em; }
+
+    /* SECTION CARD */
+    .card-section {
+      background: #fff;
+      border-radius: 24px;
+      margin: 0 12px 10px;
+      padding: 36px 28px;
+    }
+
+    /* MISSION */
+    .mission h2 {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    .mission p {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #666;
+      line-height: 1.65;
+    }
+    .btn-outline {
+      display: inline-block;
+      margin-top: 18px;
+      border: 1px solid #000;
+      color: #000;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 9999px;
+      padding: 8px 18px;
+      text-decoration: none;
+    }
+    .mock-cards {
+      position: relative;
+      height: 210px;
+      margin-top: 28px;
+    }
+    .card-green {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #4ade80;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 14px;
+      width: 148px;
+      transform: rotate(-4deg);
+    }
+    .card-green-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      flex-shrink: 0;
+    }
+    .card-green-name { font-size: 10px; font-weight: 600; color: #fff; }
+    .card-green-email { font-size: 8px; color: rgba(255,255,255,0.75); margin-top: 1px; }
+    .card-green-inner {
+      background: rgba(255,255,255,0.3);
+      border-radius: 10px;
+      padding: 8px 10px;
+    }
+    .card-green-inner .label { font-size: 8px; color: #fff; font-weight: 500; }
+    .card-green-inner .amount { font-size: 13px; color: #fff; font-weight: 700; margin-top: 2px; }
+
+    .card-sticky {
+      position: absolute;
+      left: 110px;
+      top: 18px;
+      background: #fde68a;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+      padding: 12px;
+      width: 130px;
+      transform: rotate(3deg);
+    }
+    .card-sticky .name { font-size: 9px; font-weight: 600; color: #444; margin-bottom: 4px; }
+    .card-sticky .note { font-size: 9px; color: #555; line-height: 1.5; }
+    .card-sticky .note em { font-style: italic; }
+
+    .card-invoice-preview {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      padding: 14px;
+      width: 148px;
+      font-size: 9px;
+      color: #555;
+    }
+    .card-invoice-preview .title { font-size: 10px; font-weight: 600; color: #111; margin-bottom: 8px; }
+    .invoice-row { display: flex; justify-content: space-between; margin-bottom: 3px; }
+    .invoice-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      font-weight: 600;
+      color: #111;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 5px;
+      margin-top: 5px;
+    }
+    .pay-btn-small {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 8px;
+      font-weight: 600;
+      color: #004370;
+      border: 1px solid #004370;
+      border-radius: 9999px;
+      padding: 4px 0;
+    }
+
+    .dark-invoice {
+      margin-top: 20px;
+      background: #111827;
+      border-radius: 18px;
+      padding: 18px;
+      color: #fff;
+    }
+    .dark-invoice-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .dark-invoice-from { font-size: 8px; color: #9ca3af; margin-bottom: 4px; }
+    .dark-invoice-amount { font-size: 18px; font-weight: 700; }
+    .dark-invoice-due { font-size: 8px; color: #9ca3af; margin-top: 2px; }
+    .dark-invoice-pay-label { font-size: 8px; color: #9ca3af; text-align: right; margin-bottom: 4px; }
+    .dark-invoice-chips { display: flex; gap: 4px; }
+    .dark-invoice-chip {
+      background: rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 3px 6px;
+      font-size: 8px;
+      color: #fff;
+    }
+    .dark-invoice-cta {
+      margin-top: 14px;
+      background: #fff;
+      color: #000;
+      border-radius: 12px;
+      text-align: center;
+      padding: 9px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* PRICING */
+    .pricing-section { padding: 48px 20px; }
+    .pricing-label {
+      font-size: 10px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .pricing-starting { font-size: 10px; color: #666; margin-bottom: 2px; }
+    .pricing-percent { font-size: 34px; font-weight: 800; color: #000000e6; line-height: 1; }
+    .pricing-percent span { font-size: 15px; font-weight: 400; color: #666; }
+    .pricing-zero { font-size: 12px; color: #666; margin-top: 4px; }
+
+    .pricing-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .pricing-card-logo {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 16px;
+    }
+    .pricing-card-logo .name { font-size: 11px; font-weight: 600; }
+    .pricing-section-label {
+      font-size: 9px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 6px;
+    }
+    .pricing-feature {
+      font-size: 11px;
+      color: #000000e6;
+      margin-bottom: 4px;
+    }
+    .pricing-divider { border: none; border-top: 1px solid #f3f4f6; margin: 12px 0; }
+
+    /* CURRENCIES */
+    .currencies-section { padding: 48px 20px; }
+    .currency-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .currency-tag {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 9999px;
+      padding: 5px 12px;
+      font-size: 10px;
+      color: #666;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .currencies-section h2 {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    .currencies-section h2 u { text-underline-offset: 3px; }
+
+    .map-container {
+      margin-top: 24px;
+      border-radius: 18px;
+      height: 160px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #cde0f5 0%, #ddeeff 40%, #c8daf0 100%);
+    }
+    /* CSS world map dots simulation */
+    .map-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle 2px at 20% 45%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 24% 42%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 28% 40%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 32% 43%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 36% 38%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 40% 50%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 50% 35%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 55% 40%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 60% 45%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 65% 38%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 70% 50%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 75% 45%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 80% 55%, #a0b8d0 0%, transparent 100%),
+        radial-gradient(circle 2px at 85% 48%, #a0b8d0 0%, transparent 100%);
+    }
+    .map-pin {
+      position: absolute;
+      background: #fff;
+      border-radius: 9999px;
+      padding: 3px 8px;
+      font-size: 9px;
+      font-weight: 600;
+      color: #333;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .map-pin.p1 { top: 28px; left: 30%; }
+    .map-pin.p2 { top: 40px; right: 25%; }
+    .map-pin.p3 { bottom: 30px; left: 50%; }
+
+    .currency-chips {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .currency-chip {
+      flex-shrink: 0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 10px;
+      font-weight: 600;
+      min-width: 70px;
+    }
+    .chip-green { background: #d1fae5; color: #065f46; }
+    .chip-blue { background: #dbeafe; color: #1e40af; }
+    .chip-red { background: #fee2e2; color: #991b1b; }
+    .chip-purple { background: #ede9fe; color: #5b21b6; }
+
+    /* FEATURES */
+    .features-section { padding: 48px 20px; text-align: center; }
+    .features-section h2 {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    .features-section .sub {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #666;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+      text-align: left;
+    }
+    .feature-card {
+      background: #fff;
+      border: 1px solid #f0f0f0;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.04);
+    }
+    .feature-card h3 {
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f9fafb;
+      border-radius: 8px;
+      padding: 7px 9px;
+      margin-bottom: 5px;
+    }
+    .feature-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .feature-item span { font-size: 9px; color: #555; }
+    .feature-preview {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .preview-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #bfdbfe;
+      margin-bottom: 8px;
+    }
+    .preview-line {
+      height: 6px;
+      border-radius: 4px;
+      background: #e5e7eb;
+      margin-bottom: 5px;
+    }
+    .preview-btn {
+      height: 24px;
+      border-radius: 6px;
+      background: #000;
+      margin-top: 10px;
+    }
+    .btn-center {
+      display: inline-block;
+      margin-top: 28px;
+      background: #000;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 9999px;
+      padding: 10px 24px;
+      text-decoration: none;
+    }
+
+    /* TESTIMONIAL */
+    .testimonial-section { background: #fff; border-radius: 24px; margin: 0 12px 10px; padding: 32px 24px; }
+    .invoice-paid {
+      background: #f9fafb;
+      border: 1px solid #f0f0f0;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .invoice-paid-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .invoice-paid-title { font-size: 10px; font-weight: 600; }
+    .badge-paid {
+      background: #d1fae5;
+      color: #065f46;
+      border-radius: 9999px;
+      padding: 2px 8px;
+      font-size: 8px;
+      font-weight: 600;
+    }
+    .invoice-paid-row { display: flex; justify-content: space-between; font-size: 9px; color: #666; margin-bottom: 3px; }
+    .invoice-paid-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      font-weight: 600;
+      color: #111;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 6px;
+      margin-top: 6px;
+    }
+    .invoice-paid-btn {
+      margin-top: 12px;
+      text-align: center;
+      background: #000;
+      color: #fff;
+      border-radius: 9999px;
+      padding: 7px;
+      font-size: 9px;
+      font-weight: 600;
+    }
+    .testimonial-quote {
+      font-size: 13px;
+      line-height: 1.65;
+      color: #000000e6;
+      margin-bottom: 18px;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 10px; }
+    .author-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #d1d5db;
+    }
+    .author-name { font-size: 11px; font-weight: 600; }
+    .author-handle { font-size: 10px; color: #666; margin-top: 1px; }
+
+    /* CTA DARK */
+    .cta-dark {
+      background: #004370;
+      border-radius: 24px;
+      margin: 0 12px 10px;
+      padding: 52px 28px;
+      text-align: center;
+    }
+    .cta-dark h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+    .btn-outline-white {
+      display: inline-block;
+      margin-top: 24px;
+      border: 1.5px solid rgba(255,255,255,0.7);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 9999px;
+      padding: 9px 20px;
+      text-decoration: none;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 52px 20px 32px;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 5px; margin-bottom: 14px; }
+    .footer h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #000000e6;
+      margin-bottom: 8px;
+    }
+    .footer-tagline { font-size: 12px; color: #666; line-height: 1.6; max-width: 220px; margin-bottom: 18px; }
+    .footer-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.4fr;
+      gap: 20px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 28px;
+      margin-top: 28px;
+    }
+    .footer-col-title { font-size: 11px; font-weight: 600; color: #000000e6; margin-bottom: 10px; }
+    .footer-col a {
+      display: block;
+      font-size: 10px;
+      color: #666;
+      text-decoration: none;
+      margin-bottom: 6px;
+    }
+    .footer-col a:hover { color: #000; }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 32px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      <span class="logo-badge">G9</span>
+      <span class="logo-name">Acctual</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Pricing</a>
+      <a href="#">Blog</a>
+      <a href="#">Log in</a>
+      <a href="#" class="btn-nav">Sign up</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Get paid<br/>same day</h1>
+    <p>By sending customers the most<br/>flexible invoice on the planet.</p>
+    <a href="#" class="btn-primary">Create invoice in seconds</a>
+    <div class="hero-stats">6k+ businesses in 125+ countries</div>
+    <div class="partner-logos">
+      <span>airbnb</span>
+      <span>LYFT</span>
+      <span>stripe</span>
+      <span>shopify</span>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="card-section mission">
+    <h2>We exist to make<br/>getting paid faster,<br/>easier and cheaper in<br/>any currency you want</h2>
+    <p>Let your customers pay in dollars, euros or stablecoins. Share among any kind of invoice, get paid in whatever way works best for you.</p>
+    <a href="#" class="btn-outline">Make an invoice</a>
+
+    <div class="mock-cards">
+      <!-- Green card -->
+      <div class="card-green">
+        <div class="card-green-header">
+          <div class="avatar"></div>
+          <div>
+            <div class="card-green-name">Mariko Studio</div>
+            <div class="card-green-email">mariko@studio.co</div>
+          </div>
+        </div>
+        <div class="card-green-inner">
+          <div class="label">Invoice #0042</div>
+          <div class="amount">$3,200.00</div>
+        </div>
+      </div>
+
+      <!-- Sticky note -->
+      <div class="card-sticky">
+        <div class="name">Chae Ai</div>
+        <div class="note">Managing<br/>installments<br/><em>Use Acctual</em></div>
+      </div>
+
+      <!-- Invoice preview -->
+      <div class="card-invoice-preview">
+        <div class="title">Invoice</div>
+        <div class="invoice-row"><span>Design services</span><span>$1,200</span></div>
+        <div class="invoice-row"><span>Development</span><span>$2,000</span></div>
+        <div class="invoice-total"><span>Total</span><span>$3,200</span></div>
+        <div class="pay-btn-small">Pay now</div>
+      </div>
+    </div>
+
+    <!-- Dark invoice -->
+    <div class="dark-invoice">
+      <div class="dark-invoice-top">
+        <div>
+          <div class="dark-invoice-from">From Acctual</div>
+          <div class="dark-invoice-amount">$3,200.00</div>
+          <div class="dark-invoice-due">Invoice · Due today</div>
+        </div>
+        <div>
+          <div class="dark-invoice-pay-label">Pay with</div>
+          <div class="dark-invoice-chips">
+            <span class="dark-invoice-chip">USD</span>
+            <span class="dark-invoice-chip">EUR</span>
+            <span class="dark-invoice-chip">USDC</span>
+          </div>
+        </div>
+      </div>
+      <div class="dark-invoice-cta">Pay $3,200.00</div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section">
+    <div class="pricing-label">With simple pricing</div>
+    <div class="pricing-starting">Starting</div>
+    <div class="pricing-percent">1% <span>per payment</span></div>
+    <div class="pricing-zero">0% in same-month earning</div>
+
+    <div class="pricing-card">
+      <div class="pricing-card-logo">
+        <span class="logo-badge">G9</span>
+        <span class="name">Acctual</span>
+      </div>
+      <div class="pricing-section-label">Usage</div>
+      <div class="pricing-feature">— Unlimited invoices</div>
+      <hr class="pricing-divider"/>
+      <div class="pricing-section-label">Features</div>
+      <div class="pricing-feature">— Flexible payment options (1%)</div>
+      <div class="pricing-feature">— Automated QBO/Xero sync</div>
+    </div>
+  </section>
+
+  <!-- CURRENCIES -->
+  <section class="currencies-section">
+    <div class="currency-tags">
+      <span class="currency-tag">Expert import from China to</span>
+      <span class="currency-tag">5k designer in Thailand</span>
+    </div>
+    <h2>Euros, Dollars, Yens,<br/>USDC... we do it all<br/>and <u>we do it fast.</u></h2>
+
+    <div class="map-container">
+      <span class="map-pin p1">€ EUR</span>
+      <span class="map-pin p2">$ USD</span>
+      <span class="map-pin p3">¥ JPY</span>
+    </div>
+
+    <div class="currency-chips">
+      <div class="currency-chip chip-green">$ Dollar</div>
+      <div class="currency-chip chip-blue">€ Euro</div>
+      <div class="currency-chip chip-red">¥ Yen</div>
+      <div class="currency-chip chip-purple">◎ USDC</div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <h2>What makes for the<br/>world's most<br/>thoughtful invoice?</h2>
+    <p class="sub">We're so glad you asked.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Pay &amp; get paid, however you want</h3>
+        <div class="feature-item">
+          <div class="feature-dot" style="background:#d1d5db;"></div>
+          <span>ACH / Wire</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-dot" style="background:#bfdbfe;"></div>
+          <span>USD</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-dot" style="background:#fde68a;"></div>
+          <span>$3,200.00</span>
+        </div>
+      </div>
+      <div class="feature-card">
+        <h3>Design you're proud of</h3>
+        <div class="feature-preview">
+          <div class="preview-avatar"></div>
+          <div class="preview-line" style="width:75%;"></div>
+          <div class="preview-line" style="width:50%;"></div>
+          <div class="preview-btn"></div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="btn-center">Get started</a>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial-section">
+    <div class="invoice-paid">
+      <div class="invoice-paid-header">
+        <span class="invoice-paid-title">Invoice #0088</span>
+        <span class="badge-paid">Paid</span>
+      </div>
+      <div class="invoice-paid-row"><span>Brand identity</span><span>$4,500</span></div>
+      <div class="invoice-paid-row"><span>Strategy deck</span><span>$1,200</span></div>
+      <div class="invoice-paid-total"><span>Total</span><span>$5,700.00</span></div>
+      <div class="invoice-paid-btn">Paid · Thank you!</div>
+    </div>
+    <p class="testimonial-quote">"As soon as I started using Acctual, clients actually paid me on time. Sometimes the same day. I don't know what they did, but it works."</p>
+    <div class="testimonial-author">
+      <div class="author-avatar"></div>
+      <div>
+        <div class="author-name">Nikki Bora</div>
+        <div class="author-handle">Love you, pay me</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA DARK -->
+  <section class="cta-dark">
+    <h2>When you let people pay and get paid the way they want, the more progress gets made, faster.</h2>
+    <a href="#" class="btn-outline-white">About us</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <span class="logo-badge">G9</span>
+      <span class="logo-name">Acctual</span>
+    </div>
+    <h3>Love you, pay me</h3>
+    <p class="footer-tagline">Get paid 'same day' by sending customers the most flexible invoice on the planet.</p>
+    <a href="#" class="btn-primary">Make an invoice</a>
+
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Basics</div>
+        <a href="#">Transfer USD to Bank</a>
+        <a href="#">Transfer USD to Bank</a>
+        <a href="#">Transfer EUR to Bank</a>
+        <a href="#">USDC Invoicing</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Send Money</div>
+        <a href="#">Send invoice to US from UK</a>
+        <a href="#">Send invoice to EU from US</a>
+        <a href="#">Send invoice to CA from US</a>
+        <a href="#">Send invoice to AU from US</a>
+        <a href="#">Send invoice to JP from US</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="logo-badge">G9</span>
+      <span class="logo-name">Acctual</span>
+    </div>
+  </footer>
+
+</body>
+</html>
