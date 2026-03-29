@@ -3,839 +3,717 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Acctual – Get paid same day</title>
+  <title>LeftClick — AI Growth Systems by Nick Saraev</title>
   <style>
-    :root {
-      --bg: #f7fafc;
-      --primary: #004370;
-      --text: #000000e6;
-      --muted: #666;
-    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-      font-size: 12px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
       background: #f7fafc;
       color: #000000e6;
       -webkit-font-smoothing: antialiased;
-      max-width: 420px;
-      margin: 0 auto;
     }
+    a { text-decoration: none; color: inherit; }
 
-    /* NAV */
+    /* ── LAYOUT ── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+    /* ── NAV ── */
     nav {
+      padding: 20px 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 20px;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
+    .logo { display: flex; align-items: center; gap: 6px; }
     .logo-badge {
-      display: inline-flex;
-      align-items: center;
       background: #004370;
       color: #fff;
       font-size: 9px;
-      font-weight: 700;
-      border-radius: 9999px;
-      padding: 2px 6px;
-      letter-spacing: 0.03em;
+      font-weight: 800;
+      border-radius: 6px;
+      padding: 3px 7px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
-    .logo-name { font-size: 13px; font-weight: 600; }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .nav-links a {
-      color: #666;
-      text-decoration: none;
-      font-size: 11px;
-    }
-    .btn-nav {
-      background: #000;
-      color: #fff;
-      font-size: 11px;
-      border-radius: 9999px;
-      padding: 6px 14px;
-      text-decoration: none;
-    }
+    .logo-name { font-size: 14px; font-weight: 700; letter-spacing: -0.02em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 12px; color: #666; transition: color .15s; }
+    .nav-links a:hover { color: #000; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; border-radius: 9999px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all .15s; }
+    .btn-dark { background: #000; color: #fff; padding: 9px 20px; }
+    .btn-dark:hover { background: #1a1a1a; }
+    .btn-outline { border: 1.5px solid #000; color: #000; padding: 8px 20px; }
+    .btn-outline:hover { background: #000; color: #fff; }
+    .btn-white { background: #fff; color: #000; padding: 9px 20px; }
+    .btn-white:hover { background: #f0f0f0; }
+    .btn-outline-white { border: 1.5px solid rgba(255,255,255,0.55); color: #fff; padding: 9px 20px; }
+    .btn-outline-white:hover { background: rgba(255,255,255,.1); }
 
-    /* HERO */
+    /* ── HERO ── */
     .hero {
+      padding: 96px 0 80px;
       text-align: center;
-      padding: 48px 24px 56px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 9999px;
+      padding: 5px 14px;
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    }
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
     }
     .hero h1 {
-      font-size: 38px;
+      font-size: clamp(36px, 6vw, 64px);
       font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
       color: #000000e6;
+      max-width: 780px;
+      margin: 0 auto 22px;
     }
+    .hero h1 em { font-style: normal; color: #004370; }
     .hero p {
-      margin-top: 14px;
-      font-size: 13px;
+      font-size: 16px;
       color: #666;
-      line-height: 1.6;
+      line-height: 1.65;
+      max-width: 520px;
+      margin: 0 auto 36px;
     }
-    .btn-primary {
-      display: inline-block;
-      margin-top: 22px;
-      background: #000;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 500;
-      border-radius: 9999px;
-      padding: 10px 20px;
-      text-decoration: none;
-    }
-    .hero-stats {
-      margin-top: 36px;
-      font-size: 10px;
-      color: #666;
-    }
-    .partner-logos {
-      margin-top: 10px;
+    .hero-cta { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* ── LOGOS ── */
+    .logos-section { padding: 16px 0 64px; text-align: center; }
+    .logos-label { font-size: 11px; color: #999; margin-bottom: 20px; letter-spacing: 0.03em; }
+    .logos-row {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 18px;
+      gap: 40px;
+      flex-wrap: wrap;
       opacity: 0.35;
     }
-    .partner-logos span { font-size: 11px; font-weight: 700; color: #333; letter-spacing: 0.05em; }
+    .logo-item { font-size: 13px; font-weight: 700; color: #333; letter-spacing: 0.04em; }
 
-    /* SECTION CARD */
-    .card-section {
-      background: #fff;
-      border-radius: 24px;
-      margin: 0 12px 10px;
-      padding: 36px 28px;
-    }
-
-    /* MISSION */
-    .mission h2 {
-      font-size: 22px;
-      font-weight: 800;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-    }
-    .mission p {
-      margin-top: 14px;
-      font-size: 12px;
-      color: #666;
-      line-height: 1.65;
-    }
-    .btn-outline {
-      display: inline-block;
-      margin-top: 18px;
-      border: 1px solid #000;
-      color: #000;
+    /* ── SECTION HEADINGS ── */
+    .section-label {
       font-size: 11px;
-      font-weight: 500;
-      border-radius: 9999px;
-      padding: 8px 18px;
-      text-decoration: none;
-    }
-    .mock-cards {
-      position: relative;
-      height: 210px;
-      margin-top: 28px;
-    }
-    .card-green {
-      position: absolute;
-      left: 0;
-      top: 0;
-      background: #4ade80;
-      border-radius: 18px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      padding: 14px;
-      width: 148px;
-      transform: rotate(-4deg);
-    }
-    .card-green-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .avatar {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      flex-shrink: 0;
-    }
-    .card-green-name { font-size: 10px; font-weight: 600; color: #fff; }
-    .card-green-email { font-size: 8px; color: rgba(255,255,255,0.75); margin-top: 1px; }
-    .card-green-inner {
-      background: rgba(255,255,255,0.3);
-      border-radius: 10px;
-      padding: 8px 10px;
-    }
-    .card-green-inner .label { font-size: 8px; color: #fff; font-weight: 500; }
-    .card-green-inner .amount { font-size: 13px; color: #fff; font-weight: 700; margin-top: 2px; }
-
-    .card-sticky {
-      position: absolute;
-      left: 110px;
-      top: 18px;
-      background: #fde68a;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.14);
-      padding: 12px;
-      width: 130px;
-      transform: rotate(3deg);
-    }
-    .card-sticky .name { font-size: 9px; font-weight: 600; color: #444; margin-bottom: 4px; }
-    .card-sticky .note { font-size: 9px; color: #555; line-height: 1.5; }
-    .card-sticky .note em { font-style: italic; }
-
-    .card-invoice-preview {
-      position: absolute;
-      right: 0;
-      top: 0;
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      padding: 14px;
-      width: 148px;
-      font-size: 9px;
-      color: #555;
-    }
-    .card-invoice-preview .title { font-size: 10px; font-weight: 600; color: #111; margin-bottom: 8px; }
-    .invoice-row { display: flex; justify-content: space-between; margin-bottom: 3px; }
-    .invoice-total {
-      display: flex;
-      justify-content: space-between;
-      font-size: 9px;
-      font-weight: 600;
-      color: #111;
-      border-top: 1px solid #e5e7eb;
-      padding-top: 5px;
-      margin-top: 5px;
-    }
-    .pay-btn-small {
-      margin-top: 10px;
-      text-align: center;
-      font-size: 8px;
       font-weight: 600;
       color: #004370;
-      border: 1px solid #004370;
-      border-radius: 9999px;
-      padding: 4px 0;
-    }
-
-    .dark-invoice {
-      margin-top: 20px;
-      background: #111827;
-      border-radius: 18px;
-      padding: 18px;
-      color: #fff;
-    }
-    .dark-invoice-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .dark-invoice-from { font-size: 8px; color: #9ca3af; margin-bottom: 4px; }
-    .dark-invoice-amount { font-size: 18px; font-weight: 700; }
-    .dark-invoice-due { font-size: 8px; color: #9ca3af; margin-top: 2px; }
-    .dark-invoice-pay-label { font-size: 8px; color: #9ca3af; text-align: right; margin-bottom: 4px; }
-    .dark-invoice-chips { display: flex; gap: 4px; }
-    .dark-invoice-chip {
-      background: rgba(255,255,255,0.12);
-      border-radius: 6px;
-      padding: 3px 6px;
-      font-size: 8px;
-      color: #fff;
-    }
-    .dark-invoice-cta {
-      margin-top: 14px;
-      background: #fff;
-      color: #000;
-      border-radius: 12px;
-      text-align: center;
-      padding: 9px;
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    /* PRICING */
-    .pricing-section { padding: 48px 20px; }
-    .pricing-label {
-      font-size: 10px;
-      color: #666;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
-    }
-    .pricing-starting { font-size: 10px; color: #666; margin-bottom: 2px; }
-    .pricing-percent { font-size: 34px; font-weight: 800; color: #000000e6; line-height: 1; }
-    .pricing-percent span { font-size: 15px; font-weight: 400; color: #666; }
-    .pricing-zero { font-size: 12px; color: #666; margin-top: 4px; }
-
-    .pricing-card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 20px;
-      padding: 20px;
-      margin-top: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .pricing-card-logo {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      margin-bottom: 16px;
-    }
-    .pricing-card-logo .name { font-size: 11px; font-weight: 600; }
-    .pricing-section-label {
-      font-size: 9px;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      margin-bottom: 6px;
-    }
-    .pricing-feature {
-      font-size: 11px;
-      color: #000000e6;
-      margin-bottom: 4px;
-    }
-    .pricing-divider { border: none; border-top: 1px solid #f3f4f6; margin: 12px 0; }
-
-    /* CURRENCIES */
-    .currencies-section { padding: 48px 20px; }
-    .currency-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-    .currency-tag {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 9999px;
-      padding: 5px 12px;
-      font-size: 10px;
-      color: #666;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-    }
-    .currencies-section h2 {
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-    }
-    .currencies-section h2 u { text-underline-offset: 3px; }
-
-    .map-container {
-      margin-top: 24px;
-      border-radius: 18px;
-      height: 160px;
-      overflow: hidden;
-      position: relative;
-      background: linear-gradient(135deg, #cde0f5 0%, #ddeeff 40%, #c8daf0 100%);
-    }
-    /* CSS world map dots simulation */
-    .map-container::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle 2px at 20% 45%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 24% 42%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 28% 40%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 32% 43%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 36% 38%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 40% 50%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 50% 35%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 55% 40%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 60% 45%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 65% 38%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 70% 50%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 75% 45%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 80% 55%, #a0b8d0 0%, transparent 100%),
-        radial-gradient(circle 2px at 85% 48%, #a0b8d0 0%, transparent 100%);
-    }
-    .map-pin {
-      position: absolute;
-      background: #fff;
-      border-radius: 9999px;
-      padding: 3px 8px;
-      font-size: 9px;
-      font-weight: 600;
-      color: #333;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-    .map-pin.p1 { top: 28px; left: 30%; }
-    .map-pin.p2 { top: 40px; right: 25%; }
-    .map-pin.p3 { bottom: 30px; left: 50%; }
-
-    .currency-chips {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-    }
-    .currency-chip {
-      flex-shrink: 0;
-      border-radius: 12px;
-      padding: 10px 14px;
-      font-size: 10px;
-      font-weight: 600;
-      min-width: 70px;
-    }
-    .chip-green { background: #d1fae5; color: #065f46; }
-    .chip-blue { background: #dbeafe; color: #1e40af; }
-    .chip-red { background: #fee2e2; color: #991b1b; }
-    .chip-purple { background: #ede9fe; color: #5b21b6; }
-
-    /* FEATURES */
-    .features-section { padding: 48px 20px; text-align: center; }
-    .features-section h2 {
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-    }
-    .features-section .sub {
-      margin-top: 8px;
-      font-size: 12px;
-      color: #666;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 24px;
-      text-align: left;
-    }
-    .feature-card {
-      background: #fff;
-      border: 1px solid #f0f0f0;
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.04);
-    }
-    .feature-card h3 {
-      font-size: 11px;
-      font-weight: 700;
-      line-height: 1.4;
+      letter-spacing: 0.1em;
       margin-bottom: 12px;
     }
-    .feature-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #f9fafb;
-      border-radius: 8px;
-      padding: 7px 9px;
-      margin-bottom: 5px;
+    .section-title {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: #000000e6;
+      margin-bottom: 16px;
     }
-    .feature-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .feature-item span { font-size: 9px; color: #555; }
-    .feature-preview {
-      background: #f9fafb;
-      border-radius: 12px;
-      padding: 12px;
-    }
-    .preview-avatar {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #bfdbfe;
-      margin-bottom: 8px;
-    }
-    .preview-line {
-      height: 6px;
-      border-radius: 4px;
-      background: #e5e7eb;
-      margin-bottom: 5px;
-    }
-    .preview-btn {
-      height: 24px;
-      border-radius: 6px;
-      background: #000;
-      margin-top: 10px;
-    }
-    .btn-center {
-      display: inline-block;
-      margin-top: 28px;
-      background: #000;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 500;
-      border-radius: 9999px;
-      padding: 10px 24px;
-      text-decoration: none;
+    .section-sub {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.65;
+      max-width: 520px;
     }
 
-    /* TESTIMONIAL */
-    .testimonial-section { background: #fff; border-radius: 24px; margin: 0 12px 10px; padding: 32px 24px; }
-    .invoice-paid {
-      background: #f9fafb;
-      border: 1px solid #f0f0f0;
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 24px;
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid #e5e7eb; }
+
+    /* ── PROBLEMS ── */
+    .problems-section { padding: 88px 0; }
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
     }
-    .invoice-paid-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .problem-card {
+      background: #fff;
+      border: 1px solid #e9ecef;
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.04);
+    }
+    .problem-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .problem-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
       margin-bottom: 10px;
     }
-    .invoice-paid-title { font-size: 10px; font-weight: 600; }
-    .badge-paid {
-      background: #d1fae5;
-      color: #065f46;
-      border-radius: 9999px;
-      padding: 2px 8px;
-      font-size: 8px;
-      font-weight: 600;
-    }
-    .invoice-paid-row { display: flex; justify-content: space-between; font-size: 9px; color: #666; margin-bottom: 3px; }
-    .invoice-paid-total {
-      display: flex;
-      justify-content: space-between;
-      font-size: 9px;
-      font-weight: 600;
-      color: #111;
-      border-top: 1px solid #e5e7eb;
-      padding-top: 6px;
-      margin-top: 6px;
-    }
-    .invoice-paid-btn {
-      margin-top: 12px;
-      text-align: center;
-      background: #000;
-      color: #fff;
-      border-radius: 9999px;
-      padding: 7px;
-      font-size: 9px;
-      font-weight: 600;
-    }
-    .testimonial-quote {
-      font-size: 13px;
-      line-height: 1.65;
-      color: #000000e6;
-      margin-bottom: 18px;
-    }
-    .testimonial-author { display: flex; align-items: center; gap: 10px; }
-    .author-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #d1d5db;
-    }
-    .author-name { font-size: 11px; font-weight: 600; }
-    .author-handle { font-size: 10px; color: #666; margin-top: 1px; }
+    .problem-card p { font-size: 13px; color: #666; line-height: 1.65; }
 
-    /* CTA DARK */
-    .cta-dark {
-      background: #004370;
-      border-radius: 24px;
-      margin: 0 12px 10px;
-      padding: 52px 28px;
-      text-align: center;
+    /* ── PROCESS ── */
+    .process-section {
+      padding: 88px 0;
+      background: #fff;
+      border-radius: 32px;
+      margin: 0 0 2px;
     }
-    .cta-dark h2 {
-      font-size: 22px;
-      font-weight: 800;
+    .process-section .inner { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 64px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: calc(12.5% + 10px);
+      right: calc(12.5% + 10px);
+      height: 1px;
+      background: #e5e7eb;
+    }
+    .process-step { text-align: center; padding: 0 16px; }
+    .step-number {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: #f7fafc;
+      border: 1.5px solid #e5e7eb;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #004370;
+      margin: 0 auto 20px;
+      position: relative;
+      background: #fff;
+    }
+    .step-number.active {
+      background: #004370;
+      border-color: #004370;
       color: #fff;
-      line-height: 1.4;
+      box-shadow: 0 0 0 6px rgba(0,67,112,.1);
+    }
+    .process-step h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
       letter-spacing: -0.01em;
     }
-    .btn-outline-white {
-      display: inline-block;
-      margin-top: 24px;
-      border: 1.5px solid rgba(255,255,255,0.7);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 500;
-      border-radius: 9999px;
-      padding: 9px 20px;
-      text-decoration: none;
-    }
+    .process-step p { font-size: 12px; color: #666; line-height: 1.6; }
 
-    /* FOOTER */
-    footer {
-      padding: 52px 20px 32px;
-    }
-    .footer-logo { display: flex; align-items: center; gap: 5px; margin-bottom: 14px; }
-    .footer h3 {
-      font-size: 20px;
-      font-weight: 800;
-      color: #000000e6;
-      margin-bottom: 8px;
-    }
-    .footer-tagline { font-size: 12px; color: #666; line-height: 1.6; max-width: 220px; margin-bottom: 18px; }
-    .footer-links {
+    /* ── RESULTS ── */
+    .results-section { padding: 88px 0; }
+    .results-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1.4fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      border-top: 1px solid #e5e7eb;
-      padding-top: 28px;
-      margin-top: 28px;
+      margin-top: 56px;
     }
-    .footer-col-title { font-size: 11px; font-weight: 600; color: #000000e6; margin-bottom: 10px; }
-    .footer-col a {
-      display: block;
+    .result-card {
+      background: #fff;
+      border: 1px solid #e9ecef;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.04);
+      display: flex;
+      flex-direction: column;
+    }
+    .result-tag {
+      display: inline-flex;
+      align-items: center;
+      background: #f0f6ff;
+      color: #004370;
+      border-radius: 9999px;
+      padding: 4px 12px;
       font-size: 10px;
-      color: #666;
-      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      align-self: flex-start;
+    }
+    .result-stat {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #000000e6;
+      line-height: 1;
       margin-bottom: 6px;
     }
+    .result-stat-label { font-size: 12px; color: #666; margin-bottom: 18px; }
+    .result-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .result-card p { font-size: 12px; color: #666; line-height: 1.65; flex: 1; }
+    .result-client {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid #f3f4f6;
+    }
+    .client-logo {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .client-name { font-size: 11px; font-weight: 600; }
+    .client-desc { font-size: 10px; color: #999; }
+
+    /* ── TEAM ── */
+    .team-section { padding: 88px 0; background: #fff; border-radius: 32px; }
+    .team-section .inner { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .team-card {
+      border: 1px solid #e9ecef;
+      border-radius: 20px;
+      padding: 28px;
+    }
+    .team-avatar {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .team-card .name { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+    .team-card .role { font-size: 11px; color: #004370; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 12px; }
+    .team-card .bio { font-size: 12px; color: #666; line-height: 1.65; }
+    .team-card .credential {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 14px;
+      background: #f7fafc;
+      border-radius: 9999px;
+      padding: 4px 10px;
+      font-size: 10px;
+      color: #555;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section { padding: 88px 0; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+    .testimonial-card {
+      background: #fff;
+      border: 1px solid #e9ecef;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.04);
+    }
+    .stars { color: #f59e0b; font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+    .testimonial-card blockquote {
+      font-size: 13px;
+      color: #000000e6;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: normal;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 10px; }
+    .t-avatar {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .t-name { font-size: 12px; font-weight: 700; }
+    .t-role { font-size: 10px; color: #999; margin-top: 1px; }
+
+    /* ── CTA DARK ── */
+    .cta-section {
+      background: #004370;
+      border-radius: 28px;
+      margin: 0 0 2px;
+      padding: 88px 48px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      max-width: 640px;
+      margin: 0 auto 16px;
+    }
+    .cta-section p {
+      font-size: 15px;
+      color: rgba(255,255,255,.65);
+      max-width: 440px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .cta-buttons { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer { padding: 64px 0 40px; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .footer-brand .tagline { font-size: 13px; color: #666; line-height: 1.65; margin-top: 14px; max-width: 240px; }
+    .footer-brand .footer-cta { margin-top: 20px; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; color: #000000e6; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 12px; color: #666; margin-bottom: 9px; transition: color .15s; }
     .footer-col a:hover { color: #000; }
     .footer-bottom {
       display: flex;
       align-items: center;
-      gap: 5px;
-      margin-top: 32px;
+      justify-content: space-between;
+      padding-top: 28px;
+      font-size: 11px;
+      color: #999;
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: #999; }
+    .footer-bottom-links a:hover { color: #000; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .nav-links { gap: 16px; }
+      .nav-links a:not(.btn) { display: none; }
+      .hero { padding: 64px 0 56px; }
+      .problems-grid, .results-grid, .team-grid, .testimonials-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .process-steps::before { display: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .process-section .inner, .team-section .inner { padding: 0 24px; }
+      .cta-section { padding: 64px 24px; border-radius: 20px; }
     }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav>
-    <div class="logo">
-      <span class="logo-badge">G9</span>
-      <span class="logo-name">Acctual</span>
-    </div>
-    <div class="nav-links">
-      <a href="#">Pricing</a>
-      <a href="#">Blog</a>
-      <a href="#">Log in</a>
-      <a href="#" class="btn-nav">Sign up</a>
-    </div>
-  </nav>
+  <div class="container">
+    <nav>
+      <div class="logo">
+        <span class="logo-badge">LC</span>
+        <span class="logo-name">LeftClick</span>
+      </div>
+      <div class="nav-links">
+        <a href="#">Work</a>
+        <a href="#">Process</a>
+        <a href="#">Pricing</a>
+        <a href="#">Blog</a>
+        <a href="#" class="btn btn-dark">Book a free call &rarr;</a>
+      </div>
+    </nav>
+  </div>
 
   <!-- HERO -->
-  <section class="hero">
-    <h1>Get paid<br/>same day</h1>
-    <p>By sending customers the most<br/>flexible invoice on the planet.</p>
-    <a href="#" class="btn-primary">Create invoice in seconds</a>
-    <div class="hero-stats">6k+ businesses in 125+ countries</div>
-    <div class="partner-logos">
-      <span>airbnb</span>
-      <span>LYFT</span>
-      <span>stripe</span>
-      <span>shopify</span>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Now taking new clients for Q2 2026
+      </div>
+      <h1>You built your agency.<br/><em>We'll scale it.</em></h1>
+      <p>LeftClick builds AI-driven growth systems for agencies and service businesses — so you spend less time operating and more time growing.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-dark">Book a free growth audit &rarr;</a>
+        <a href="#" class="btn btn-outline">See our work</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- CLIENT LOGOS -->
+  <div class="container">
+    <section class="logos-section">
+      <p class="logos-label">Trusted by teams at</p>
+      <div class="logos-row">
+        <span class="logo-item">NordVPN</span>
+        <span class="logo-item">Upwork</span>
+        <span class="logo-item">KOHO</span>
+        <span class="logo-item">Wise</span>
+        <span class="logo-item">Lululemon</span>
+        <span class="logo-item">FATJOE</span>
+      </div>
+    </section>
+  </div>
+
+  <hr class="divider container" style="margin: 0 auto;" />
+
+  <!-- PROBLEMS -->
+  <div class="container">
+    <section class="problems-section">
+      <div class="section-label">The problem</div>
+      <div class="section-title">Growth is getting harder.<br/>We make it systematic.</div>
+      <p class="section-sub">Most agencies hit the same three walls. We've seen them all — and we've built the systems to break through them.</p>
+      <div class="problems-grid">
+        <div class="problem-card">
+          <div class="problem-icon" style="background:#fef2f2;">📉</div>
+          <h3>Inconsistent Growth</h3>
+          <p>You're guessing month-over-month instead of compounding on what works. LeftClick identifies and multiplies your most scalable revenue channels with AI-powered precision.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon" style="background:#fffbeb;">⚡</div>
+          <h3>You're the Bottleneck</h3>
+          <p>Everything runs through you. Ditch the one-man-army dynamic and leverage AI to complement and enhance your team's capabilities — so growth doesn't depend on your hours.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon" style="background:#f0fdf4;">📈</div>
+          <h3>Margins Are Too Thin</h3>
+          <p>More clients shouldn't mean more headcount. AI reduces your costs while delivering better results — 80%+ margins aren't uncommon once the right systems are in place.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="inner">
+      <div class="section-label">How it works</div>
+      <div class="section-title">Simple process.<br/>Serious results.</div>
+      <p class="section-sub">No retainer surprises. No decks full of promises. Just a clear path from bottleneck to breakout.</p>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number active">01</div>
+          <h3>Free Audit Call</h3>
+          <p>A free 30-minute session to audit your funnel, identify bottlenecks, and map out exactly where AI moves the needle.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <h3>Clear Scope & Fixed Price</h3>
+          <p>We deliver a clear scope, timeline, and fixed price. No surprises, no hourly billing — you know exactly what you're getting.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <h3>Build & Deploy</h3>
+          <p>Our team builds, tests, and deploys your systems. You get weekly updates and a working product — not a deck full of promises.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <h3>Ongoing Support</h3>
+          <p>Optional retainer for monitoring, optimization, and iteration. Most clients see compounding returns over time.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- MISSION -->
-  <section class="card-section mission">
-    <h2>We exist to make<br/>getting paid faster,<br/>easier and cheaper in<br/>any currency you want</h2>
-    <p>Let your customers pay in dollars, euros or stablecoins. Share among any kind of invoice, get paid in whatever way works best for you.</p>
-    <a href="#" class="btn-outline">Make an invoice</a>
-
-    <div class="mock-cards">
-      <!-- Green card -->
-      <div class="card-green">
-        <div class="card-green-header">
-          <div class="avatar"></div>
-          <div>
-            <div class="card-green-name">Mariko Studio</div>
-            <div class="card-green-email">mariko@studio.co</div>
+  <!-- RESULTS -->
+  <div class="container">
+    <section class="results-section">
+      <div class="section-label">Case studies</div>
+      <div class="section-title">We've done this before.</div>
+      <p class="section-sub">Real systems, real results — across content agencies, PR firms, and high-growth service businesses.</p>
+      <div class="results-grid">
+        <div class="result-card">
+          <span class="result-tag">Content Agency</span>
+          <div class="result-stat">90%</div>
+          <div class="result-stat-label">of pipeline automated end-to-end</div>
+          <h3>1SecondCopy</h3>
+          <p>Automated everything from lead gen to delivery — custom bots bidding on freelance jobs, AI-generated cover letters, a self-serve client portal, and an AI-driven project board. Cost per 1,000 words cut by 50–60%.</p>
+          <div class="result-client">
+            <div class="client-logo" style="background:#004370;">1S</div>
+            <div>
+              <div class="client-name">1SecondCopy</div>
+              <div class="client-desc">Canada's largest content agency</div>
+            </div>
           </div>
         </div>
-        <div class="card-green-inner">
-          <div class="label">Invoice #0042</div>
-          <div class="amount">$3,200.00</div>
+        <div class="result-card">
+          <span class="result-tag">PR Agency</span>
+          <div class="result-stat">10K+</div>
+          <div class="result-stat-label">personalized pitches sent per day</div>
+          <h3>XWeCan</h3>
+          <p>Built a research engine scraping journalist beats, enriching records with email, LinkedIn, and past coverage — then sending 10,000+ GPT-personalized pitches daily. Clients consistently received "best pitch I've seen" replies.</p>
+          <div class="result-client">
+            <div class="client-logo" style="background:#6366f1;">XW</div>
+            <div>
+              <div class="client-name">XWeCan</div>
+              <div class="client-desc">Global PR agency</div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <!-- Sticky note -->
-      <div class="card-sticky">
-        <div class="name">Chae Ai</div>
-        <div class="note">Managing<br/>installments<br/><em>Use Acctual</em></div>
-      </div>
-
-      <!-- Invoice preview -->
-      <div class="card-invoice-preview">
-        <div class="title">Invoice</div>
-        <div class="invoice-row"><span>Design services</span><span>$1,200</span></div>
-        <div class="invoice-row"><span>Development</span><span>$2,000</span></div>
-        <div class="invoice-total"><span>Total</span><span>$3,200</span></div>
-        <div class="pay-btn-small">Pay now</div>
-      </div>
-    </div>
-
-    <!-- Dark invoice -->
-    <div class="dark-invoice">
-      <div class="dark-invoice-top">
-        <div>
-          <div class="dark-invoice-from">From Acctual</div>
-          <div class="dark-invoice-amount">$3,200.00</div>
-          <div class="dark-invoice-due">Invoice · Due today</div>
-        </div>
-        <div>
-          <div class="dark-invoice-pay-label">Pay with</div>
-          <div class="dark-invoice-chips">
-            <span class="dark-invoice-chip">USD</span>
-            <span class="dark-invoice-chip">EUR</span>
-            <span class="dark-invoice-chip">USDC</span>
+        <div class="result-card">
+          <span class="result-tag">Social Growth</span>
+          <div class="result-stat">50K</div>
+          <div class="result-stat-label">engaged followers in 2 months</div>
+          <h3>Instagram Growth</h3>
+          <p>Built a fully automated publishing pipeline with high-quality editing and a lead magnet funnel — producing 50,000 engaged followers in two months through consistent, targeted content.</p>
+          <div class="result-client">
+            <div class="client-logo" style="background:#ec4899;">IG</div>
+            <div>
+              <div class="client-name">Product Design Client</div>
+              <div class="client-desc">B2B SaaS brand</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="dark-invoice-cta">Pay $3,200.00</div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <!-- PRICING -->
-  <section class="pricing-section">
-    <div class="pricing-label">With simple pricing</div>
-    <div class="pricing-starting">Starting</div>
-    <div class="pricing-percent">1% <span>per payment</span></div>
-    <div class="pricing-zero">0% in same-month earning</div>
-
-    <div class="pricing-card">
-      <div class="pricing-card-logo">
-        <span class="logo-badge">G9</span>
-        <span class="name">Acctual</span>
-      </div>
-      <div class="pricing-section-label">Usage</div>
-      <div class="pricing-feature">— Unlimited invoices</div>
-      <hr class="pricing-divider"/>
-      <div class="pricing-section-label">Features</div>
-      <div class="pricing-feature">— Flexible payment options (1%)</div>
-      <div class="pricing-feature">— Automated QBO/Xero sync</div>
-    </div>
-  </section>
-
-  <!-- CURRENCIES -->
-  <section class="currencies-section">
-    <div class="currency-tags">
-      <span class="currency-tag">Expert import from China to</span>
-      <span class="currency-tag">5k designer in Thailand</span>
-    </div>
-    <h2>Euros, Dollars, Yens,<br/>USDC... we do it all<br/>and <u>we do it fast.</u></h2>
-
-    <div class="map-container">
-      <span class="map-pin p1">€ EUR</span>
-      <span class="map-pin p2">$ USD</span>
-      <span class="map-pin p3">¥ JPY</span>
-    </div>
-
-    <div class="currency-chips">
-      <div class="currency-chip chip-green">$ Dollar</div>
-      <div class="currency-chip chip-blue">€ Euro</div>
-      <div class="currency-chip chip-red">¥ Yen</div>
-      <div class="currency-chip chip-purple">◎ USDC</div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features-section">
-    <h2>What makes for the<br/>world's most<br/>thoughtful invoice?</h2>
-    <p class="sub">We're so glad you asked.</p>
-
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>Pay &amp; get paid, however you want</h3>
-        <div class="feature-item">
-          <div class="feature-dot" style="background:#d1d5db;"></div>
-          <span>ACH / Wire</span>
+  <!-- TEAM -->
+  <section class="team-section">
+    <div class="inner">
+      <div class="section-label">The team</div>
+      <div class="section-title">Built by people who've<br/>done this at scale.</div>
+      <p class="section-sub">Not consultants. Operators — who've built and scaled real businesses using the same systems we build for you.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar" style="background:#004370;">N</div>
+          <div class="name">Nick Saraev</div>
+          <div class="role">Co-Founder & CEO</div>
+          <p class="bio">Pivoted from medicine to build a series of successful digital media businesses. Founded 1SecondCopy at 25 — now one of Canada's largest content agencies. Featured in Popular Mechanics, Apple News, and Bloomberg. Amazon Kindle best-seller.</p>
+          <span class="credential">287K YouTube subscribers</span>
         </div>
-        <div class="feature-item">
-          <div class="feature-dot" style="background:#bfdbfe;"></div>
-          <span>USD</span>
+        <div class="team-card">
+          <div class="team-avatar" style="background:#0f766e;">N</div>
+          <div class="name">Noah Edis</div>
+          <div class="role">Co-Founder & CTO</div>
+          <p class="bio">Architect of LeftClick's AI infrastructure. Designed and deployed the automation systems behind 1SecondCopy and dozens of client builds — transforming manual workflows into autonomous, self-improving pipelines.</p>
+          <span class="credential">#1 Skool community</span>
         </div>
-        <div class="feature-item">
-          <div class="feature-dot" style="background:#fde68a;"></div>
-          <span>$3,200.00</span>
-        </div>
-      </div>
-      <div class="feature-card">
-        <h3>Design you're proud of</h3>
-        <div class="feature-preview">
-          <div class="preview-avatar"></div>
-          <div class="preview-line" style="width:75%;"></div>
-          <div class="preview-line" style="width:50%;"></div>
-          <div class="preview-btn"></div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:#7c3aed;">C</div>
+          <div class="name">Cody</div>
+          <div class="role">Head of Engineering</div>
+          <p class="bio">8 years leading Hill & Foster, designing and shipping software for 200+ clients — including the Government of California, Lululemon, and QubeIoT. At LeftClick he applies full-stack expertise to AI-driven automations and end-to-end systems.</p>
+          <span class="credential">200+ clients shipped</span>
         </div>
       </div>
     </div>
-
-    <a href="#" class="btn-center">Get started</a>
   </section>
 
-  <!-- TESTIMONIAL -->
-  <section class="testimonial-section">
-    <div class="invoice-paid">
-      <div class="invoice-paid-header">
-        <span class="invoice-paid-title">Invoice #0088</span>
-        <span class="badge-paid">Paid</span>
+  <!-- TESTIMONIALS -->
+  <div class="container">
+    <section class="testimonials-section">
+      <div class="section-label">What clients say</div>
+      <div class="section-title">Results speak.<br/>Clients confirm.</div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Nick and his team didn't just consult — they built. Within 6 weeks we had a fully automated lead gen system running 24/7. Pipeline went from unpredictable to compounding."</blockquote>
+          <div class="testimonial-author">
+            <div class="t-avatar" style="background:#004370;">JM</div>
+            <div>
+              <div class="t-name">James M.</div>
+              <div class="t-role">Founder, B2B Agency</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"We were the bottleneck in our own business. LeftClick mapped out exactly where AI could replace us — and built the systems to do it. Margins went from 40% to 75% in a quarter."</blockquote>
+          <div class="testimonial-author">
+            <div class="t-avatar" style="background:#0f766e;">SR</div>
+            <div>
+              <div class="t-name">Sarah R.</div>
+              <div class="t-role">CEO, Content Studio</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Fixed price, no surprises, shipped on time. The weekly update cadence kept us confident the whole way through. Best vendor experience we've had in years."</blockquote>
+          <div class="testimonial-author">
+            <div class="t-avatar" style="background:#7c3aed;">DK</div>
+            <div>
+              <div class="t-name">David K.</div>
+              <div class="t-role">COO, PR Firm</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="invoice-paid-row"><span>Brand identity</span><span>$4,500</span></div>
-      <div class="invoice-paid-row"><span>Strategy deck</span><span>$1,200</span></div>
-      <div class="invoice-paid-total"><span>Total</span><span>$5,700.00</span></div>
-      <div class="invoice-paid-btn">Paid · Thank you!</div>
-    </div>
-    <p class="testimonial-quote">"As soon as I started using Acctual, clients actually paid me on time. Sometimes the same day. I don't know what they did, but it works."</p>
-    <div class="testimonial-author">
-      <div class="author-avatar"></div>
-      <div>
-        <div class="author-name">Nikki Bora</div>
-        <div class="author-handle">Love you, pay me</div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <!-- CTA DARK -->
-  <section class="cta-dark">
-    <h2>When you let people pay and get paid the way they want, the more progress gets made, faster.</h2>
-    <a href="#" class="btn-outline-white">About us</a>
-  </section>
+  <!-- CTA -->
+  <div class="container" style="padding-bottom: 80px;">
+    <section class="cta-section">
+      <h2>Ready to stop guessing and start scaling?</h2>
+      <p>Book a free 30-minute growth mapping call. We'll audit your funnel, find the bottlenecks, and show you exactly where AI moves the needle.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn btn-white">Book your free audit &rarr;</a>
+        <a href="#" class="btn btn-outline-white">See pricing</a>
+      </div>
+    </section>
+  </div>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">
-      <span class="logo-badge">G9</span>
-      <span class="logo-name">Acctual</span>
-    </div>
-    <h3>Love you, pay me</h3>
-    <p class="footer-tagline">Get paid 'same day' by sending customers the most flexible invoice on the planet.</p>
-    <a href="#" class="btn-primary">Make an invoice</a>
-
-    <div class="footer-links">
-      <div class="footer-col">
-        <div class="footer-col-title">Company</div>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Blog</a>
+  <div class="container">
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-badge">LC</span>
+            <span class="logo-name">LeftClick</span>
+          </div>
+          <p class="tagline">AI growth systems for agencies and service businesses. Built by operators, not consultants.</p>
+          <a href="#" class="btn btn-dark footer-cta">Book a free call &rarr;</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Work</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#">AI Systems</a>
+          <a href="#">Lead Generation</a>
+          <a href="#">Content Automation</a>
+          <a href="#">Growth Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Pricing</a>
+        </div>
       </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Basics</div>
-        <a href="#">Transfer USD to Bank</a>
-        <a href="#">Transfer USD to Bank</a>
-        <a href="#">Transfer EUR to Bank</a>
-        <a href="#">USDC Invoicing</a>
+      <div class="footer-bottom">
+        <span>© 2026 LeftClick AI. Vancouver, BC.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Twitter / X</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">YouTube</a>
+        </div>
       </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Send Money</div>
-        <a href="#">Send invoice to US from UK</a>
-        <a href="#">Send invoice to EU from US</a>
-        <a href="#">Send invoice to CA from US</a>
-        <a href="#">Send invoice to AU from US</a>
-        <a href="#">Send invoice to JP from US</a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span class="logo-badge">G9</span>
-      <span class="logo-name">Acctual</span>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
 </body>
 </html>
